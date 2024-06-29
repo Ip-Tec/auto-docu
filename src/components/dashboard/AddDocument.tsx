@@ -41,7 +41,7 @@ const AddDocument = () => {
         className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center"
       >
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
         <Button variant="contained" component="span">
           Browse Files
         </Button>
