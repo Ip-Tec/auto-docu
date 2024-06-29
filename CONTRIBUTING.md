@@ -22,7 +22,7 @@ There are several ways to contribute to Auto-Docu:
 
 ## Reporting Issues
 
-If you encounter any bugs or issues, please report them using the [GitHub Issues](https://github.com/Ip-Tec/auto-docu.git/issues) feature. When reporting an issue, please provide as much detail as possible:
+If you encounter any bugs or issues, please report them using the [GitHub Issues](https://github.com/Ip-Tec/auto-docu/issues) feature. When reporting an issue, please provide as much detail as possible:
 
 - A clear and descriptive title
 - Steps to reproduce the issue
