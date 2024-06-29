@@ -112,7 +112,7 @@ const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }
               {isSidebarOpen && "Templates"}
             </Link>
           </li>
-          <li className="mb-2">
+          {/* <li className="mb-2">
             <Link
               href="/users"
               className={`block p-2 rounded ${
@@ -124,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }
               <UserIcon className="h-5 w-5 inline-block mr-4" />
               {isSidebarOpen && "User"}
             </Link>
-          </li>
+          </li> */}
           <li className="mb-2">
             <Link
               href="/settings"
