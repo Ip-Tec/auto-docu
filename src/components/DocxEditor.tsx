@@ -11,6 +11,7 @@ import "react-resizable/css/styles.css";
 import { IconButton, Card } from "@mui/material";
 import CropFreeIcon from "@mui/icons-material/CropFree";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
+import FloatingToolbar from "@/components/FloatingToolbar";
 
 const A4_WIDTH_PX = 793.7; // A4 width in pixels
 const A4_HEIGHT_PX = 1122.5; // A4 height in pixels
@@ -92,9 +93,8 @@ const DocxEditor: React.FC = () => {
   };
 
   return (
-    <div
-      className="p-4 overflow-y-auto"
-    >
+    <div className="p-4 overflow-y-auto">
+      <FloatingToolbar />
       <FloatingToolbox onAddSignature={addSignatureField} />
       <div
         className="relative"

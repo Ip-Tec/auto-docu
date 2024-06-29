@@ -33,12 +33,12 @@ const AddDocument = () => {
   return (
     <div className="container flex items-center justify-center flex-col mx-auto p-4 w-9/12">
       <Typography variant="h4">Add new document</Typography>
-      <Typography variant="body1">
+      {/* <Typography variant="body1">
         Click to browse or drop a .pdf, .docx, .doc, or excel file here.
-      </Typography>
+      </Typography> */}
       <div
         {...getRootProps()}
-        className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center"
+        className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center hover:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-800"
       >
         <input {...getInputProps()} />
         <p>Drag &apos;n&apos; drop some files here, or click to select files</p>

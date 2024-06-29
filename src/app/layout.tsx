@@ -45,7 +45,7 @@ export default function RootLayout({
               <div
                 className={`flex-1 ml-14 ${
                   isSidebarExpanded && "md:ml-40"
-                } overflow-y-auto bg-gray-200 text-gray-800 dark:bg-gray-900 dark:text-white transition-margin duration-300`}
+                } overflow-y-auto bg-gray-200 text-gray-800 dark:bg-gray-900 dark:text-white transition-margin duration-300 pt-24`}
               >
                 {children}
               </div>

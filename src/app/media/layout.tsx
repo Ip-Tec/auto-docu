@@ -1,4 +1,4 @@
-// components/Layout.tsx
+// Setting/layout.tsx
 import React from "react";
 
 import styles from "@/components/Layout.module.css";
