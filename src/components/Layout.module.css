@@ -1,0 +1,19 @@
+/* components/Layout.module.css */
+.root {
+    display: flex;
+  }
+  
+  .title {
+    flex-grow: 1;
+    text-transform: capitalize;
+  }
+  
+  .content {
+    flex-grow: 1;
+    /* padding: 16px; */
+  }
+  
+  .toolbar {
+    min-height: 64px;
+  }
+  
