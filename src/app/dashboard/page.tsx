@@ -19,7 +19,7 @@ const initialInvoice = {
 
 const HomePage = () => {
   return (
-    <main className="max-w-full mx-auto bg-white dark:bg-gray-900 dark:text-white h:[80vh]">
+    <main className="max-w-full mx-auto bg-white dark:bg-gray-900 dark:text-white">
       <div className="flex justify-between items-center p-4 bg-gray-200 text-gray-800 flex-shrink-0 dark:bg-gray-800 dark:text-white">
         <h1 className="text-1xl font-bold mb-4">Dashboard</h1>
       </div>

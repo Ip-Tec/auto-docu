@@ -43,26 +43,27 @@ const ViewTemplates: React.FC = () => {
         <h1 className="text-2xl font-semibold">
           Your templates {templates.length}
         </h1>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded">
+        <button className="bg-blue-600 text-white  px-4 py-2 rounded">
           + Add template
         </button>
       </div>
-      <div className="flex mb-4">
+      <div className="flex mb-4 dark:text-white text-black">
         <input
           type="text"
           placeholder="Search..."
-          className="border border-gray-300 rounded p-2 w-full mr-2"
+          className="border border-gray-300 dark:border-gray-600 dark:bg-transparent rounded p-2 w-full mr-2"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <select
-          className="border border-gray-300 rounded p-2"
+          className="border border-gray-300 dark:border-gray-800 dark:bg-transparent rounded p-2 w-auto"
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
         >
           <option value="">All Types</option>
           <option value="Business">Business</option>
           <option value="Legal">Legal</option>
+          <option value="Invoice">Invoice</option>
           {/* Add more types as needed */}
         </select>
       </div>
@@ -70,13 +71,13 @@ const ViewTemplates: React.FC = () => {
         {filteredTemplates.map((template) => (
           <div
             key={template.id}
-            className="flex justify-between items-center border border-gray-200 rounded p-4 shadow"
+            className="flex justify-between items-center border border-gray-200 dark:border-gray-600 rounded p-4 shadow-md dark:shadow-gray-800"
           >
             <div className="flex items-center">
               <img
                 src={template.preview}
                 alt="Preview"
-                className="w-16 h-20 bg-gray-200 mr-4"
+                className="w-16 h-20 bg-gray-200 dark:bg-gray-700 mr-4"
               />
               <div>
                 <h2 className="text-lg font-semibold text-blue-700">

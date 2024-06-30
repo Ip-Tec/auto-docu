@@ -20,7 +20,7 @@ import {
   Delete,
 } from "@mui/icons-material";
 import AddDocument from "@/components/dashboard/AddDocument";
-import DocxEditor from "@/components/DocxEditor";
+import DocxEditor from "@/components/document/DocxEditor";
 
 const Document = () => {
   const [open, setOpen] = useState<String>("");
@@ -37,7 +37,7 @@ const Document = () => {
       : [];
 
   return (
-    <div className="container mx-auto p-4 w-9/12">
+    <div className="container mx-auto p-4">
       {uploadedFiles.length === 0 ? (
         <div className="flex items-center justify-center">
           <AddDocument />

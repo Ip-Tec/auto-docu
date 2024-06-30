@@ -1,14 +1,12 @@
 // components/Layout.tsx
-import React from "react";
 
-import styles from "@/components/Layout.module.css";
+import React from "react";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeContextProvider>
-      <div className={styles.root}>
+      <div className="flex">
         <main className="flex-grow ">
-          <div className={styles.toolbar} />
           {children}
         </main>
       </div>

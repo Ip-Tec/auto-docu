@@ -1,5 +1,5 @@
 import React from "react";
-import UserSettings from "@/components/UserSettings";
+import UserSettings from "@/components/settings/UserSettings";
 
 function SettingPaga() {
   return (

@@ -1,6 +1,6 @@
 // src/pages/edit-docx.tsx
 import React from "react";
-import DocxEditor from "@/components/DocxEditor";
+import DocxEditor from "@/components/document/DocxEditor";
 
 const EditDocxPage: React.FC = () => {
   return (

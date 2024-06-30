@@ -1,7 +1,6 @@
 // Setting/layout.tsx
 import React from "react";
 
-import styles from "@/components/Layout.module.css";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

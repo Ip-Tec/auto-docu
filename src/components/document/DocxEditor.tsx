@@ -4,14 +4,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Editor, EditorState, ContentState, convertToRaw } from "draft-js";
 import "draft-js/dist/Draft.css";
-import SignaturePad from "@/components/SignaturePad";
-import FloatingToolbox from "@/components/FloatingToolbox";
+import SignaturePad from "@/components/document/SignaturePad";
+import FloatingToolbox from "@/components/document/FloatingToolbox";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
 import { IconButton, Card } from "@mui/material";
 import CropFreeIcon from "@mui/icons-material/CropFree";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
-import FloatingToolbar from "@/components/FloatingToolbar";
+import FloatingToolbar from "@/components/document/FloatingToolbar";
 
 const A4_WIDTH_PX = 793.7; // A4 width in pixels
 const A4_HEIGHT_PX = 1122.5; // A4 height in pixels
