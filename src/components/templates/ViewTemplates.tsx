@@ -2,7 +2,7 @@
 
 "use client";
 import React, { useState } from "react";
-
+import Image from "next/image";
 // Example templates data
 const templates = [
   {
@@ -74,7 +74,7 @@ const ViewTemplates: React.FC = () => {
             className="flex justify-between items-center border border-gray-200 dark:border-gray-600 rounded p-4 shadow-md dark:shadow-gray-800"
           >
             <div className="flex items-center">
-              <img
+              <Image
                 src={template.preview}
                 alt="Preview"
                 className="w-16 h-20 bg-gray-200 dark:bg-gray-700 mr-4"

@@ -66,7 +66,7 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
     <div className="flex flex-col items-center ">
       <div {...useDropzone({ onDrop })} className="border-2 border-dashed border-gray-300 p-4 rounded-md mb-4 w-full text-center">
         <input type="file" accept="image/*" multiple onChange={(e) => onDrop(Array.from(e.target.files || []))} className="mb-4 hidden" />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
       </div>
       {selectedFiles.length > 0 && (
         <ul className="mb-4">
