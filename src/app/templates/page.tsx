@@ -5,7 +5,9 @@ function TemplatesPaga() {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Templates Paga</h1>
+        <h1 className="text-2xl font-bold mb-4 p-4 dark:bg-gray-950 ">
+          Templates Paga
+        </h1>
         <ViewTemplates />
       </div>
     </>

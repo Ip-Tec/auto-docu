@@ -10,19 +10,23 @@ import {
   DocumentTextIcon,
   DocumentDuplicateIcon,
   ArrowLeftOnRectangleIcon,
-  ArrowRightOnRectangleIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/solid";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 interface SidebarProps {
   Addclass?: string;
-  toggleSidebar: () => void;  // Define the prop type for toggleSidebar
-  isExpanded: boolean;  // Optionally receive the current state of the sidebar
+  toggleSidebar: () => void; // Define the prop type for toggleSidebar
+  isExpanded: boolean; // Optionally receive the current state of the sidebar
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }) => {
- 
+const Sidebar: React.FC<SidebarProps> = ({
+  Addclass,
+  toggleSidebar,
+  isExpanded,
+}) => {
   const pathname = usePathname();
   const isSidebarOpen = isExpanded;
 
@@ -51,9 +55,9 @@ const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }
           onClick={toggleSidebar}
         >
           {isSidebarOpen ? (
-            <ArrowLeftOnRectangleIcon className="h-6 w-6" />
+            <ArrowLeftIcon className="h-6 w-6" />
           ) : (
-            <ArrowRightOnRectangleIcon className="h-6 w-6" />
+            <ArrowRightIcon className="h-6 w-6" />
           )}
         </button>
       </div>
@@ -100,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }
           </li>
           <li className="mb-2">
             <Link
-            title="Templates"
+              title="Templates"
               href="/templates"
               className={`block p-2 rounded ${
                 isActive("/templates")
@@ -137,6 +141,15 @@ const Sidebar: React.FC<SidebarProps> = ({ Addclass, toggleSidebar, isExpanded }
               <Cog8ToothIcon className="h-5 w-5 inline-block mr-4" />
               {isSidebarOpen && "Settings"}
             </Link>
+          </li>
+          <li className="mb-2 w-auto fixed bottom-4">
+            <p
+              className="block p-2 rounded hover:border bg-orange-900 text-blue-100 hover:bg-transparent hover:border-orange-900 dark:hover:text-blue-300 hover:text-orange-900 hover:scale-110 cursor-pointer
+              "
+            >
+              <ArrowLeftOnRectangleIcon className=" h-5 w-5 inline-block mr-4" />
+              {isSidebarOpen && "Logout"}
+            </p>
           </li>
         </ul>
       </nav>
