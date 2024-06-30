@@ -7,7 +7,9 @@ const MediaItem = ({ src }: { src: string }) => {
       <Image
         src={src}
         alt="Media"
-        className="w-full h-32 object-cover rounded"
+        width={150}
+        height={100}
+        className="min-w-fit h-32 object-cover rounded"
       />
     </div>
   );

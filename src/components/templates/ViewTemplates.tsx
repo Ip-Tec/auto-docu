@@ -77,6 +77,8 @@ const ViewTemplates: React.FC = () => {
               <Image
                 src={template.preview}
                 alt="Preview"
+                width={100}
+                height={100}
                 className="w-16 h-20 bg-gray-200 dark:bg-gray-700 mr-4"
               />
               <div>

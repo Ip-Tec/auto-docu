@@ -1,9 +1,14 @@
 // supabaseClient.ts
 import { createClient } from "@supabase/supabase-js";
 
+interface supabaseType {
+  supabaseUrl: string;
+  supabaseKey: string;
+}
+
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY;
-let supabase 
+let supabase;
 console.log("Supabase URL:", supabaseUrl);
 console.log("Supabase Key:", supabaseKey);
 
