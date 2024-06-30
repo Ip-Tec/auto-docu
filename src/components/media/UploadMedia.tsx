@@ -4,7 +4,13 @@
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
-import supabase from "@/utils/supabaseClient";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+import { SupabaseClient } from "@supabase/supabase-js"; // Import the type from supabase-js
 
 interface UploadMediaProps {
   onClose: () => void;
@@ -33,7 +39,9 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
 
       for (const file of selectedFiles) {
         if (!allowedTypes.includes(file.type)) {
-          alert(`Only JPEG, PNG, and GIF files are allowed. File: ${file.name}`);
+          alert(
+            `Only JPEG, PNG, and GIF files are allowed. File: ${file.name}`
+          );
           continue;
         }
 
@@ -42,7 +50,7 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
           continue;
         }
 
-        const { data, error } = await supabase.storage
+        const { data, error } = await (supabase as SupabaseClient).storage
           .from("media")
           .upload(`public/${file.name}`, file);
 
@@ -64,8 +72,17 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
 
   return (
     <div className="flex flex-col items-center ">
-      <div {...useDropzone({ onDrop })} className="border-2 border-dashed border-gray-300 p-4 rounded-md mb-4 w-full text-center">
-        <input type="file" accept="image/*" multiple onChange={(e) => onDrop(Array.from(e.target.files || []))} className="mb-4 hidden" />
+      <div
+        {...useDropzone({ onDrop })}
+        className="border-2 border-dashed border-gray-300 p-4 rounded-md mb-4 w-full text-center"
+      >
+        <input
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={(e) => onDrop(Array.from(e.target.files || []))}
+          className="mb-4 hidden"
+        />
         <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
       </div>
       {selectedFiles.length > 0 && (
@@ -75,7 +92,12 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
           ))}
         </ul>
       )}
-      <Button variant="contained" color="primary" onClick={handleUpload} disabled={uploading || selectedFiles.length === 0}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleUpload}
+        disabled={uploading || selectedFiles.length === 0}
+      >
         {uploading ? "Uploading..." : "Upload File"}
       </Button>
     </div>

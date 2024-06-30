@@ -11,6 +11,6 @@ if (!supabaseUrl || !supabaseKey) {
   throw new Error("Missing Supabase URL or key.");
 }
 
-// supabase = createClient(supabaseUrl, supabaseKey);
+supabase = createClient(supabaseUrl, supabaseKey);
 
 export default supabase;
