@@ -21,16 +21,15 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const toggleSidebar = () => {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
-
   useEffect(() => {
     if (!user) {
       router.push("/login");
     }
   }, [user, router]);
 
-  // if (!user) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!user) {
+    router.push("/login");
+  }
 
   return (
     <>
@@ -68,12 +67,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+  const { user } = useAuth();
+  const router = useRouter();
 
-  const toggleSidebar = () => {
-    setIsSidebarExpanded(!isSidebarExpanded);
-  };
-
+  if (!user) {
+    return router.push("/login");
+  }
   return (
     <html lang="en">
       <body className={inter.className}>

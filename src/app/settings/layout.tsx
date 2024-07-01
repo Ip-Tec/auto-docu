@@ -1,9 +1,9 @@
 // Setting/layout.tsx
 import React from "react";
 
-import styles from "@/components/Layout.module.css";
+
 import { ThemeContextProvider } from "@/context/ThemeContext";
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const SettingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeContextProvider>
       <div className="flex items-center justify-center">
@@ -15,4 +15,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default Layout;
+export default SettingLayout;

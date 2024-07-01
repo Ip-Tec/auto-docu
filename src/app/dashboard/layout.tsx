@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ThemeContextProvider } from "@/context/ThemeContext";
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeContextProvider>
       <div className="flex">
@@ -14,4 +14,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default Layout;
+export default DashboardLayout;
