@@ -6,11 +6,14 @@ import React, { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = 'https://tsxeysxfhgbhddxbewri.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzeGV5c3hmaGdiaGRkeGJld3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk3Nzg0MzcsImV4cCI6MjAzNTM1NDQzN30.W0wHRRSY8lSQ57F2oGPuF1WL1fuAxW8MRsqoLO8bXr0';
+const supabaseUrl = "https://tsxeysxfhgbhddxbewri.supabase.co";
+const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzeGV5c3hmaGdiaGRkeGJld3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk3Nzg0MzcsImV4cCI6MjAzNTM1NDQzN30.W0wHRRSY8lSQ57F2oGPuF1WL1fuAxW8MRsqoLO8bXr0";
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Both NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY must be defined");
+  throw new Error(
+    "Both NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY must be defined"
+  );
 }
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
@@ -46,7 +49,9 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
 
       for (const file of selectedFiles) {
         if (!allowedTypes.includes(file.type)) {
-          alert(`Only JPEG, PNG, and GIF files are allowed. File: ${file.name}`);
+          alert(
+            `Only JPEG, PNG, and GIF files are allowed. File: ${file.name}`
+          );
           continue;
         }
 
@@ -88,7 +93,9 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
           onChange={(e) => onDrop(Array.from(e.target.files || []))}
           className="mb-4 hidden"
         />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>
+          Drag &apos;n&apos; drop some files here, or click to select files
+        </p>
       </div>
       {selectedFiles.length > 0 && (
         <ul className="mb-4">
@@ -110,4 +117,3 @@ const UploadMedia: React.FC<UploadMediaProps> = ({ onClose }) => {
 };
 
 export default UploadMedia;
-
