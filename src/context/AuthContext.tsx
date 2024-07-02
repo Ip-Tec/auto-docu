@@ -3,8 +3,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = 'https://tsxeysxfhgbhddxbewri.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzeGV5c3hmaGdiaGRkeGJld3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk3Nzg0MzcsImV4cCI6MjAzNTM1NDQzN30.W0wHRRSY8lSQ57F2oGPuF1WL1fuAxW8MRsqoLO8bXr0';
+const supabaseUrl = "https://tsxeysxfhgbhddxbewri.supabase.co";
+const supabaseAnonKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRzeGV5c3hmaGdiaGRkeGJld3JpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTk3Nzg0MzcsImV4cCI6MjAzNTM1NDQzN30.W0wHRRSY8lSQ57F2oGPuF1WL1fuAxW8MRsqoLO8bXr0";
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -31,13 +32,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
         const currentUser = session?.user || null;
-        setUser(currentUser);
+        // setUser(currentUser);
       }
     );
 
     // Check for an active session
     supabase.auth.getSession().then(({ data: { session } }) => {
-      return setUser(session?.user ?? null);
+      // return setUser(session?.user ?? null);
+      return session?.user ?? null;
     });
 
     return () => {
@@ -50,7 +52,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       provider: "google",
     });
   };
-  
+
   const signInWithMicrosoft = async () => {
     await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -63,7 +65,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle, signInWithMicrosoft, signOut }}>
+    <AuthContext.Provider
+      value={{ user, signInWithGoogle, signInWithMicrosoft, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
