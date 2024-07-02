@@ -1,10 +1,7 @@
-// src/app/layout.tsx
-
 "use client";
 import "./globals.css";
 import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
-import { metadata } from "@/context/metadata";
 import Sidebar from "@/components/navigation/Sidebar";
 import Topbar from "@/components/navigation/Topbar";
 import { ThemeContextProvider } from "@/context/ThemeContext";
@@ -13,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+const Navigations = ({ children }: { children: React.ReactNode }) => {
   const { user } = useAuth();
   const router = useRouter();
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
@@ -21,6 +18,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const toggleSidebar = () => {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
+
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -28,7 +26,12 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }, [user, router]);
 
   if (!user) {
-    router.push("/login");
+    return (
+      <ThemeContextProvider>
+        <Topbar />
+        {children}
+      </ThemeContextProvider>
+    );
   }
 
   return (
@@ -67,19 +70,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user } = useAuth();
-  const router = useRouter();
-
-  if (!user) {
-    return router.push("/login");
-  }
   return (
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
           <ThemeContextProvider>
             <div className="flex flex-col w-full h-screen m-0">
-              <ProtectedRoute>{children}</ProtectedRoute>
+              <Navigations>{children}</Navigations>
             </div>
           </ThemeContextProvider>
         </AuthProvider>

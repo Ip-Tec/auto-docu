@@ -1,5 +1,3 @@
-// src/app/login/page.tsx
-
 "use client";
 import { useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
