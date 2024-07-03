@@ -19,11 +19,11 @@ const Navigations = ({ children }: { children: React.ReactNode }) => {
     setIsSidebarExpanded(!isSidebarExpanded);
   };
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.push("/login");
+  //   }
+  // }, [user, router]);
 
   // if (!user) {
   //   return null; // Or show a loading spinner or placeholder
