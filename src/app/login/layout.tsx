@@ -15,9 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body id={`${inter.className} `}>
         <div className="bg-gray-200 dark:bg-gray-900 flex items-center justify-center min-h-screen h-full">
-          <div className="absolute top-0 border border-gray-400 rounded-full p-4">
-            <ThemeToggle />
-          </div>
+          
           {children}
         </div>
       </body>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import GoogleSVGIcon from "@/Icon/GoogleSVGIcon";
+import ThemeToggle from "@/context/ThemeToggle";
 
 const Login = () => {
   const { signInWithGoogle, signInWithMicrosoft, user } = useAuth();
@@ -15,7 +16,12 @@ const Login = () => {
   }, [user, router]);
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-8 rounded shadow-md w-full max-w-md">
+    <div className="bg-white relative dark:bg-gray-800 p-8 rounded shadow-md w-full max-w-md">
+      <div className="absolute top-0 right-0">
+        <nav className="flex justify-center items-center w-12 h-12 bg-gray-800 dark:bg-gray-700 rounded-full">
+          <ThemeToggle color="bg-gray-800 dark:bg-gray-700"/>
+        </nav>
+      </div>
       <h1 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">
         Welcome back
       </h1>

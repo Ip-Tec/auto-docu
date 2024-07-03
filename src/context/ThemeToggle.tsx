@@ -8,7 +8,13 @@ import {
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { ThemeContextProvider, useThemeContext } from "@/context/ThemeContext";
-function ThemeToggle() {
+
+interface classProps {
+  color?: string;
+}
+
+// ThemeToggle component
+function ThemeToggle({ color }: classProps) {
   const { toggleTheme, mode } = useThemeContext();
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
@@ -34,7 +40,11 @@ function ThemeToggle() {
   }, [darkMode]);
   return (
     <ThemeContextProvider>
-      <IconButton color="inherit" onClick={() => setDarkMode(!darkMode)}>
+      <IconButton
+        color="inherit"
+        className={color}
+        onClick={() => setDarkMode(!darkMode)}
+      >
         {mode === "dark" ? (
           <Brightness7 style={{ fontSize: 40 }} />
         ) : (

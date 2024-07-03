@@ -25,14 +25,9 @@ const Navigations = ({ children }: { children: React.ReactNode }) => {
     }
   }, [user, router]);
 
-  if (!user) {
-    return (
-      <ThemeContextProvider>
-        <Topbar />
-        {children}
-      </ThemeContextProvider>
-    );
-  }
+  // if (!user) {
+  //   return null; // Or show a loading spinner or placeholder
+  // }
 
   return (
     <>
