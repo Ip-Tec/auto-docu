@@ -1,7 +1,7 @@
 // pages/index.tsx
 import React from "react";
-import Invoice from "@/components/Invoice";
 import AddDocument from "@/components/dashboard/AddDocument";
+import DocumentCardProps from "@/components/dashboard/DocumentCardProps";
 
 const initialInvoice = {
   invoiceNumber: "000001",
@@ -20,11 +20,25 @@ const initialInvoice = {
 const HomePage = () => {
   return (
     <main className="max-w-full mx-auto bg-white dark:bg-gray-900 dark:text-white">
-      <div className="flex justify-between items-center p-4 bg-gray-200 text-gray-800 flex-shrink-0 dark:bg-gray-800 dark:text-white">
+      {/* <div className="flex justify-between items-center p-4 bg-gray-200 text-gray-800 flex-shrink-0 dark:bg-gray-800 dark:text-white">
         <h1 className="text-1xl font-bold mb-4">Dashboard</h1>
-      </div>
+      </div> */}
       <div className="flex item-center justify-center">
         <AddDocument />
+      </div>
+      <div className="flex flex-col items-center justify-center">
+        <DocumentCardProps
+          title={"NEEDED"}
+          email={"ITEMS"}
+          status={"Sent"}
+          fileType={"od"}
+        />
+        <DocumentCardProps
+          title={"NEEDED"}
+          email={"ITEMS"}
+          status={"Waiting"}
+          fileType={"od"}
+        />
       </div>
     </main>
   );

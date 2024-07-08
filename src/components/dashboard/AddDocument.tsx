@@ -38,7 +38,7 @@ const AddDocument = () => {
       </Typography> */}
       <div
         {...getRootProps()}
-        className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center hover:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-800 dark:hover:bg-opacity-50"
+        className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center hover:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-800 dark:hover:bg-opacity-35"
       >
         <input {...getInputProps()} />
         <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
