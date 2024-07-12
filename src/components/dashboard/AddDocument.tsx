@@ -1,11 +1,14 @@
 // components/dashboard/AddDocument.tsx
+
 "use client";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Button, Typography } from "@mui/material";
+import { useRouter } from 'next/navigation';
 
 const AddDocument = () => {
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const router = useRouter();
 
   const onDrop = (acceptedFiles: File[]) => {
     setUploadedFiles([...uploadedFiles, ...acceptedFiles]);
@@ -15,12 +18,9 @@ const AddDocument = () => {
     onDrop,
     accept: {
       "application/pdf": [".pdf"],
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
-        [".docx"],
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
       "application/msword": [".doc"],
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [
-        ".xlsx",
-      ],
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"],
       "application/vnd.ms-excel": [".xls"],
     },
   });
@@ -30,12 +30,14 @@ const AddDocument = () => {
     setUploadedFiles(newFiles);
   };
 
+  const handleEditFile = (file: File) => {
+    // Navigate to DocxEditor component with the selected file
+    router.push(`/document/edit?file=${file.name}`);
+  };
+
   return (
     <div className="container flex items-center justify-center flex-col mx-auto p-4">
       <Typography variant="h4">Add new document</Typography>
-      {/* <Typography variant="body1">
-        Click to browse or drop a .pdf, .docx, .doc, or excel file here.
-      </Typography> */}
       <div
         {...getRootProps()}
         className="border-2 border-dashed border-gray-300 p-4 rounded-md mt-4 w-10/12 h-40 flex flex-col items-center justify-center hover:border-blue-700 hover:bg-blue-200 dark:hover:bg-blue-800 dark:hover:bg-opacity-35"
@@ -50,9 +52,17 @@ const AddDocument = () => {
         {uploadedFiles.map((file, index) => (
           <div
             key={index}
-            className="border p-2 mb-2 rounded w-auto flex items-center"
+            className="border p-2 mb-2 rounded gap-1 w-auto flex items-center"
           >
             <span className="mr-2">{file.name}</span>
+            <Button
+              variant="contained"
+              color="primary"
+              size="small"
+              onClick={() => handleEditFile(file)}
+            >
+              Edit
+            </Button>
             <Button
               variant="contained"
               color="error"

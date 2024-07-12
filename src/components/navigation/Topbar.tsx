@@ -53,7 +53,7 @@ function Topbar() {
     <>
       <AppBar
         position="fixed"
-        className="dark:bg-gray-950  bg-blue-700 text-gray-100"
+        className="dark:bg-blue-700  bg-blue-700 text-gray-100"
       >
         <Toolbar className="flex justify-between items-center">
           <Typography variant="h6" className="font-bold capitalize text-3xl">

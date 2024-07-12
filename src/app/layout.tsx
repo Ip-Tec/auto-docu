@@ -1,12 +1,13 @@
 "use client";
+
 import "./globals.css";
-import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
-import Sidebar from "@/components/navigation/Sidebar";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Topbar from "@/components/navigation/Topbar";
+import Sidebar from "@/components/navigation/Sidebar";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -2,7 +2,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Editor, EditorState, ContentState, convertToRaw } from "draft-js";
+import { useSearchParams } from 'next/navigation';
+import { Editor, EditorState, ContentState } from "draft-js";
 import "draft-js/dist/Draft.css";
 import SignaturePad from "@/components/document/SignaturePad";
 import FloatingToolbox from "@/components/document/FloatingToolbox";
@@ -28,6 +29,24 @@ const DocxEditor: React.FC = () => {
   const [pageNumber, setPageNumber] = useState(1); // Track current page number
   const editorWrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const searchParams = useSearchParams();
+  const file = searchParams.get('file');
+
+  useEffect(() => {
+    if (file) {
+      // Fetch the document content based on the file name or identifier
+      // For simplicity, we assume the document content is fetched as plain text
+      const fetchDocumentContent = async () => {
+        const response = await fetch(`/api/documents/${file}`);
+        const text = await response.text();
+        const contentState = ContentState.createFromText(text);
+        setEditorState(EditorState.createWithContent(contentState));
+      };
+
+      fetchDocumentContent();
+    }
+  }, [file]);
 
   // Monitor content height to determine page flow
   useEffect(() => {
