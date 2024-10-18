@@ -1,5 +1,4 @@
 // components/dashboard/AddDocument.tsx
-
 "use client";
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -31,8 +30,15 @@ const AddDocument = () => {
   };
 
   const handleEditFile = (file: File) => {
-    // Navigate to DocxEditor component with the selected file
-    router.push(`/document/edit?file=${file.name}`);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result;
+      if (content) {
+        const fileContent = encodeURIComponent(content as string);
+        router.push(`/document/edit?fileContent=${fileContent}`);
+      }
+    };
+    reader.readAsText(file);
   };
 
   return (

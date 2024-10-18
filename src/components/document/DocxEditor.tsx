@@ -1,17 +1,17 @@
 // src/components/DocxEditor.tsx
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { useSearchParams } from 'next/navigation';
-import { Editor, EditorState, ContentState } from "draft-js";
 import "draft-js/dist/Draft.css";
+import "react-resizable/css/styles.css";
+import { ResizableBox } from "react-resizable";
+import { IconButton, Card } from "@mui/material";
+import { useSearchParams } from 'next/navigation';
+import CropFreeIcon from "@mui/icons-material/CropFree";
+import React, { useState, useRef, useEffect } from "react";
+import DragHandleIcon from "@mui/icons-material/DragHandle";
+import { Editor, EditorState, ContentState } from "draft-js";
 import SignaturePad from "@/components/document/SignaturePad";
 import FloatingToolbox from "@/components/document/FloatingToolbox";
-import { ResizableBox } from "react-resizable";
-import "react-resizable/css/styles.css";
-import { IconButton, Card } from "@mui/material";
-import CropFreeIcon from "@mui/icons-material/CropFree";
-import DragHandleIcon from "@mui/icons-material/DragHandle";
 import FloatingToolbar from "@/components/document/FloatingToolbar";
 
 const A4_WIDTH_PX = 793.7; // A4 width in pixels
@@ -31,22 +31,15 @@ const DocxEditor: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const searchParams = useSearchParams();
-  const file = searchParams.get('file');
+  const fileContent = searchParams.get('fileContent');
 
   useEffect(() => {
-    if (file) {
-      // Fetch the document content based on the file name or identifier
-      // For simplicity, we assume the document content is fetched as plain text
-      const fetchDocumentContent = async () => {
-        const response = await fetch(`/api/documents/${file}`);
-        const text = await response.text();
-        const contentState = ContentState.createFromText(text);
-        setEditorState(EditorState.createWithContent(contentState));
-      };
-
-      fetchDocumentContent();
+    if (fileContent) {
+      const decodedContent = decodeURIComponent(fileContent);
+      const contentState = ContentState.createFromText(decodedContent);
+      setEditorState(EditorState.createWithContent(contentState));
     }
-  }, [file]);
+  }, [fileContent]);
 
   // Monitor content height to determine page flow
   useEffect(() => {
